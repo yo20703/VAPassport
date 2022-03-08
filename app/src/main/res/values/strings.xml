@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VAPassport</string>
+    <string name="main_title_ch">防疫幫手</string>
+    <string name="main_title_en">Coronavirus Prevention</string>
+</resources>
