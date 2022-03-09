@@ -30,9 +30,9 @@
         android:textSize="15sp"
         android:text="@string/main_title_en"
         />
-    
+
     <Button
-        android:id="@+id/btn_passport"
+        android:id="@+id/btn_passport1"
         android:layout_below="@+id/tv_title2"
         android:layout_marginTop="80dp"
         android:gravity="center"
@@ -41,7 +41,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"/>
     <Button
-        android:layout_below="@+id/btn_passport"
+        android:id="@+id/btn_register"
+        android:layout_below="@+id/btn_passport1"
         android:gravity="center"
         android:text="防疫實聯制"
         android:layout_centerHorizontal="true"
