@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VAPassport">
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".PassportActivity" />
+        <activity android:name=".Passport.PassportActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

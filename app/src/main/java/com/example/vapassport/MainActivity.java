@@ -1,13 +1,18 @@
 package com.example.vapassport;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+
+import com.example.vapassport.Passport.PassportActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,7 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initLayout(){
-
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.hide();  //隐藏ActionBar
+        }
         btnPassport = findViewById(R.id.btn_passport1);
         btnRegister = findViewById(R.id.btn_register);
 

@@ -1,10 +1,15 @@
 package com.example.vapassport;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
 

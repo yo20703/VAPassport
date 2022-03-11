@@ -8,6 +8,8 @@
 
     <TextView
         android:id="@+id/tv_title1"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:gravity="center"
@@ -23,6 +25,8 @@
     <TextView
         android:id="@+id/tv_title2"
         android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:gravity="center"
         android:layout_below="@+id/tv_title1"
         android:layout_width="200dp"
@@ -36,6 +40,7 @@
         android:layout_below="@+id/tv_title2"
         android:layout_marginTop="80dp"
         android:gravity="center"
+        android:background="@drawable/btn_go_passport"
         android:text="疫苗護照"
         android:layout_centerHorizontal="true"
         android:layout_width="200dp"
@@ -44,6 +49,7 @@
         android:id="@+id/btn_register"
         android:layout_below="@+id/btn_passport1"
         android:gravity="center"
+        android:background="@drawable/btn_go_register"
         android:text="防疫實聯制"
         android:layout_centerHorizontal="true"
         android:layout_width="200dp"
