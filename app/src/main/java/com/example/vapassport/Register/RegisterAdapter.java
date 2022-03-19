@@ -20,12 +20,9 @@ import java.util.Collection;
 
 public class RegisterAdapter extends RecyclerView.Adapter implements Filterable {
     public ArrayList<RegisterData> arrayList;
-    public ArrayList<RegisterData> arrayListFilter;
 
     public RegisterAdapter(ArrayList<RegisterData> arrayList){
         this.arrayList = arrayList;
-        arrayListFilter = new ArrayList<>();
-        arrayListFilter.addAll(arrayList);
     }
 
     public class registerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -96,11 +93,11 @@ public class RegisterAdapter extends RecyclerView.Adapter implements Filterable 
             ArrayList<RegisterData> filteredList = new ArrayList<>();
             /**如果沒有輸入，則將原本的陣列帶入*/
             if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(arrayListFilter);
+                filteredList.addAll(arrayList);
             } else {
                 /**如果有輸入，則照順序濾除相關字串
                  * 如果你有更好的搜尋演算法，就是寫在這邊*/
-                for (RegisterData movie: arrayListFilter) {
+                for (RegisterData movie: arrayList) {
                     if (movie.date.toLowerCase().contains(constraint.toString().toLowerCase()) ||
                             movie.time.toLowerCase().contains(constraint.toString().toLowerCase())
                     ) {

@@ -98,6 +98,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public boolean onQueryTextChange(String newText) {
                 /**調用RecyclerView內的Filter方法*/
+                Log.i("aaa", "onQueryTextChange: " + newText);
                 mAdapter.getFilter().filter(newText);
                 return false;
             }
@@ -156,10 +157,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 for(int i = 0;i < mAdapter.arrayList.size();i++){
                     if(mAdapter.arrayList.get(i).isCheck()){
                         deleteIds.add(mAdapter.arrayList.get(i).getId());
-                        db.delete(DataBaseTable,"_id=" + mAdapter.arrayList.get(i).getId(),null);
+                        db.delete(DataBaseTable,"_id=" + arrayList.get(i).getId(),null);
                         arrayList.remove(i);
                         mAdapter.notifyDataSetChanged();
-                        mAdapter.arrayListFilter = mAdapter.arrayList;
                     }
                 }
                 break;
