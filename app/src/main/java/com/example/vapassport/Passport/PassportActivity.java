@@ -1,5 +1,8 @@
 package com.example.vapassport.Passport;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
@@ -15,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.vapassport.R;
+import com.example.vapassport.Register.RegisterData;
+import com.example.vapassport.Sqlite.SqlDataBaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +37,34 @@ public class PassportActivity extends AppCompatActivity {
         initLayout();
     }
 
+    void initPassportData(SQLiteDatabase db){
+        Cursor c = db.rawQuery("SELECT * FROM " + "PassportData",null);
+        c.moveToFirst();
+        if(c.getCount() == 0){
+            for(int i = 0;i < 3;i++){
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("IsCheck", String.valueOf(i < 1));
+                db.insert("PassportData",null,contentValues);
+            }
+        }
+
+    }
+
     private void initData(){
+        SqlDataBaseHelper sqlDataBaseHelper = new SqlDataBaseHelper(this);
+        SQLiteDatabase db = sqlDataBaseHelper.getWritableDatabase(); // 開啟資料庫
+        initPassportData(db);
+        Cursor c = db.rawQuery("SELECT * FROM " + "PassportData",null);
+        c.moveToFirst();
         lists = new ArrayList<>();
-        lists.add(new DataBean(true,"已完成", "第一劑施打"));
-        lists.add(new DataBean(false,"未完成", "第二劑施打"));
-        lists.add(new DataBean(false,"未完成", "第三劑施打"));
+        for(int i = 0;i < c.getCount();i++){
+            lists.add(new DataBean(Boolean.parseBoolean(c.getString(0)),
+                    Boolean.parseBoolean(c.getString(0))?"已完成":"未完成",
+                    "第" + (i+1) + "劑施打"));
+            c.moveToNext();
+        }
+        db.close();
+
     }
 
     private void initLayout(){

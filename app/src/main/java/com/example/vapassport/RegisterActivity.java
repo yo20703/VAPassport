@@ -37,11 +37,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     Button btnDeleteRegister;
     RecyclerView recyclerView;
     ArrayList<RegisterData> arrayList;
-    private static final String DataBaseName = "DataBaseIt";
-    private static final int DataBaseVersion = 1;
-    private static String DataBaseTable = "RegisterData";
+    private static final String DataBaseTable = "RegisterData";
     private static SQLiteDatabase db;
-    private SqlDataBaseHelper sqlDataBaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initDataBase(){
-        sqlDataBaseHelper = new SqlDataBaseHelper(this,DataBaseName,null,DataBaseVersion,DataBaseTable);
+        SqlDataBaseHelper sqlDataBaseHelper = new SqlDataBaseHelper(this);
         db = sqlDataBaseHelper.getWritableDatabase(); // 開啟資料庫
 
         Cursor c = db.rawQuery("SELECT * FROM " + DataBaseTable,null);

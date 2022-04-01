@@ -9,7 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VAPassport">
-        <activity android:name=".RegisterActivity"></activity>
+        <receiver android:name=".Passport.PassportWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/passport_widget_info" />
+        </receiver>
+
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".Passport.PassportActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -2,4 +2,6 @@
     <string name="app_name">VAPassport</string>
     <string name="main_title_ch">防疫幫手</string>
     <string name="main_title_en">Coronavirus Prevention</string>
+    <string name="appwidget_text">中華民國疫苗護照</string>
+    <string name="add_widget">Add widget</string>
 </resources>
