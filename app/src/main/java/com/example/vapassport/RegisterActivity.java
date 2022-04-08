@@ -3,6 +3,7 @@ package com.example.vapassport;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
@@ -147,6 +148,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         arrayList.add(new RegisterData(id, etDate.getText().toString(), etTime.getText().toString(), etPlaceCode.getText().toString()));
                         mAdapter.notifyDataSetChanged();
                         dialog.cancel();
+                        updateWidget();
+
                     }
                 });
                 break;
@@ -160,7 +163,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         mAdapter.notifyDataSetChanged();
                     }
                 }
+                updateWidget();
                 break;
         }
+    }
+
+    private void updateWidget(){
+        Intent updateIntent = new Intent("android.appwidget.action.APPWIDGET_UPDATE");
+        sendBroadcast(updateIntent);
     }
 }

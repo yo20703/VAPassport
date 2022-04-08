@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/holo_green_dark"
+    android:padding="@dimen/widget_margin">
+
+    <TextView
+        android:id="@+id/appwidget_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="防疫實聯制"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_new"
+        android:layout_toEndOf="@+id/appwidget_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新增"/>
+
+    <RelativeLayout
+        android:layout_below="@+id/btn_new"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:background="@android:color/white"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_date"
+            android:text="2020/02/02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_toRightOf="@+id/tv_date"
+            android:text="08:30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_place_code"
+            android:layout_below="@+id/tv_date"
+            android:text="1135 4984 4987 498"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
