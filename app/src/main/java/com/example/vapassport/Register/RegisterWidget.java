@@ -44,6 +44,7 @@ public class RegisterWidget extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        Log.i(TAG, "onUpdate: ");
         this.appWidgetIds = appWidgetIds;
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
@@ -59,8 +60,11 @@ public class RegisterWidget extends AppWidgetProvider {
 
     @Override
     public void onDisabled(Context context) {
-        for (int appWidgetId : appWidgetIds) {
-            idsSet.remove(Integer.valueOf(appWidgetId));
+        Log.i(TAG, "onDisabled: ");
+        if(appWidgetIds != null && idsSet.size() > 0){
+            for (int appWidgetId : appWidgetIds) {
+                idsSet.remove(Integer.valueOf(appWidgetId));
+            }
         }
         // Enter relevant functionality for when the last widget is disabled
     }
@@ -68,6 +72,7 @@ public class RegisterWidget extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
+        Log.i(TAG, "onReceive: ");
         if(idsSet.size() > 0){
             updateAllAppWidgets(context, AppWidgetManager.getInstance(context), idsSet);
         }
