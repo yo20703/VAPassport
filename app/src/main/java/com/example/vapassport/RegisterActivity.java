@@ -146,6 +146,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         long id = db.insert(DataBaseTable,null,contentValues);
 
                         arrayList.add(new RegisterData(id, etDate.getText().toString(), etTime.getText().toString(), etPlaceCode.getText().toString()));
+                        RegisterAdapter.copyList.clear();
+                        RegisterAdapter.copyList.addAll(arrayList);
                         mAdapter.notifyDataSetChanged();
                         dialog.cancel();
                         updateWidget();
@@ -160,6 +162,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         deleteIds.add(mAdapter.arrayList.get(i).getId());
                         db.delete(DataBaseTable,"_id=" + arrayList.get(i).getId(),null);
                         arrayList.remove(i);
+                        RegisterAdapter.copyList.clear();
+                        RegisterAdapter.copyList.addAll(arrayList);
                         mAdapter.notifyDataSetChanged();
                     }
                 }
